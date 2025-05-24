@@ -4,12 +4,14 @@ permalink: /talks/
 title: talks
 description: Overview of the invited talks, lectures, panels, and juries I did or will do.
 nav: true
+nav_order: 3
 pretty_table: true
 ---
 
 | Venue | Date &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Talk Title |
 | :-  | :- | :- |
-| ESAIC         | 2025-03-18 | AI in Perioperative Care |
+| [Effective Altruism Switzerland](https://www.effectivealtruism.ch/) Community Weekend         | 2025-05-10 | Vibe Coding: from idea to product in minutes |
+| ESAIC Academy        | 2025-03-18 | [AI in Perioperative Care](https://academy.esaic.org/esaic/2025/webinars-2025/4151040/faculty.presenters.ai.in.perioperative.care.html) |
 | EPFL PhD defense         | 2024-06-14 | Few-shot Machine Learning for Efficient and Effective Model Adaptation |
 | [ELIAS-ELISE Flagship Workshop (ELLIS)](https://ellis.eu/events/joint-elise-elias-flagship-workshop) | 2024-02-07 | Sciencepreneurship Summer School 2023 & outlook |
 | [University of Tubingen ML Excellence Cluster](https://uni-tuebingen.de/en/research/core-research/cluster-of-excellence-machine-learning/home/) | 2023-10-11 | Few-shot Machine Learning for Efficient and Effective Model Adaptation |

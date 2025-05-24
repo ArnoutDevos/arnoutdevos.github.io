@@ -4,6 +4,7 @@ permalink: /teaching/
 title: teaching
 description: Overview of the courses I teach in artificial intelligence (AI) and innovation.
 nav: true
+nav_order: 2
 pretty_table: true
 ---
 
