@@ -9,12 +9,12 @@ ninja.data = [{
     handler: () => {
       window.location.href = "/";
     },
-  },{id: "nav-talks",
-          title: "talks",
-          description: "Overview of the invited talks, lectures, panels, and juries I did or will do.",
+  },{id: "nav-projects",
+          title: "projects",
+          description: "A growing collection of my projects.",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/talks/";
+            window.location.href = "/projects/";
           },
         },{id: "nav-teaching",
           title: "teaching",
@@ -23,19 +23,19 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/teaching/";
           },
+        },{id: "nav-talks",
+          title: "talks",
+          description: "Overview of the invited talks, lectures, panels, and juries I did or will do.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/talks/";
+          },
         },{id: "nav-blog",
           title: "blog",
           description: "",
           section: "Navigation",
           handler: () => {
             window.location.href = "/blog/";
-          },
-        },{id: "nav-projects",
-          title: "projects",
-          description: "A growing collection of my projects.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/projects/";
           },
         },{id: "post-eth-epfl-sciencepreneurship-summer-school-2023",
       
