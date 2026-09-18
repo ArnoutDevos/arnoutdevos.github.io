@@ -199,6 +199,7 @@ ul.task-list input[type="checkbox"] {
     margin-bottom: 5px;
     margin-top: 5px;
     font-family: monospace;
+    text-align: center;
 
     p {
       display: inline-block;
@@ -215,7 +216,9 @@ ul.task-list input[type="checkbox"] {
   margin-right: 1rem;
 }
 
-@media (min-width: 576px) {
+// Side-by-side with the bio only from md up (matches col-md-4); below that the
+// profile spans the full width with its contents centered.
+@media (min-width: 768px) {
   .profile {
     width: 30%;
 
@@ -223,6 +226,34 @@ ul.task-list input[type="checkbox"] {
       p {
         display: block;
       }
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .profile {
+    &.float-left,
+    &.float-right {
+      float: none !important;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    text-align: center;
+
+    figure {
+      max-width: 320px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .more-info p {
+      display: block;
+    }
+
+    .contact-icons {
+      max-width: 320px;
+      margin: 0 auto;
     }
   }
 }
@@ -401,9 +432,23 @@ ul.task-list input[type="checkbox"] {
   text-align: center;
 
   .contact-icons {
-    font-size: 4rem;
+    // one centered row with even gaps; icons share a fixed box so mixed shapes line up
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.1rem;
+    margin-top: 1.25rem;
+    font-size: 1.9rem;
 
     a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.4rem;
+      height: 2.4rem;
+      line-height: 1;
+
       img {
         width: 3.2rem;
         height: 3.2rem;
@@ -670,10 +715,47 @@ footer.sticky-bottom {
     img {
       width: 100%;
     }
+
+    // horizontal cards: compact layout, thumbnail padded like the body with a fixed aspect ratio
+    .row.no-gutters > .col-md-3 {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 0 0.75rem 0.75rem;
+
+      @media (max-width: 767px) {
+        padding: 0.75rem 0.75rem 0;
+      }
+
+      figure {
+        width: 100%;
+        margin: 0;
+      }
+
+      .card-img {
+        padding-top: 0;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+        border-radius: 0.25rem;
+      }
+    }
+
+    .row.no-gutters .card-body {
+      padding: 0.75rem 1rem;
+
+      .card-title {
+        font-size: 1.4rem;
+        margin-bottom: 0.4rem;
+      }
+
+      .card-text {
+        margin-bottom: 0.6rem;
+      }
+    }
   }
 
   .col {
-    padding-bottom: 1rem;
+    padding-bottom: 0;
+    margin-bottom: 1rem !important; // overrides the include's mb-4
   }
 
   .grid-sizer,
@@ -1341,4 +1423,236 @@ ninja-keys::part(ninja-input-wrapper) {
 ::highlight(search) {
   background-color: var(--global-theme-color);
   color: var(--global-text-color);
+}
+
+// Teaching course cards
+
+.course-card {
+  .course-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+
+    h4 {
+      margin-bottom: 0.25rem;
+    }
+
+    .course-meta {
+      color: var(--global-text-color-light);
+      font-style: italic;
+      margin-bottom: 0;
+    }
+  }
+
+  .course-logos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    flex-shrink: 0;
+    // matches the stacked height of h4 + meta line
+    min-height: 3.2rem;
+
+    img {
+      height: 1.4rem;
+    }
+
+    // squarer wordmark, needs more height to match visual weight
+    img.logo-hsg {
+      height: 2rem;
+    }
+
+    @media (max-width: 576px) {
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.4rem;
+      min-height: 0;
+
+      img {
+        height: 1.1rem;
+      }
+
+      img.logo-hsg {
+        height: 1.5rem;
+      }
+    }
+  }
+
+  .course-body {
+    margin: 1rem 0;
+  }
+
+  .course-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    .course-semesters {
+      font-style: italic;
+      margin-bottom: 0;
+    }
+
+    .course-links {
+      margin-left: auto;
+    }
+  }
+}
+
+// Small pill link buttons (teaching cards, project pages)
+
+.course-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+
+  a.btn {
+    color: var(--global-text-color);
+    border: 1px solid var(--global-text-color);
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    text-transform: none;
+    padding: 0.15rem 0.75rem;
+    margin: 0;
+
+    &:hover {
+      color: var(--global-theme-color);
+      border-color: var(--global-theme-color);
+      text-decoration: none;
+    }
+  }
+}
+
+// Affiliation logos on the about page
+
+.profile .affiliations {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  // separated from the social icons by whitespace and a slightly muted tone only
+  margin: 1.75rem 0 2rem;
+  opacity: 0.8;
+  transition: opacity 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.4rem;
+    border-bottom: none;
+  }
+
+  img {
+    height: 1.2rem;
+    width: auto;
+  }
+
+  // the AI Center mark is squarer than the ETH wordmark, so give it more height
+  img[alt="ETH AI Center"] {
+    height: 2.4rem;
+  }
+}
+
+// Project page header image (mirrors the card thumbnail)
+
+.project-header-img {
+  margin: 0 0 1.5rem;
+
+  figure {
+    margin: 0;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+// Section headings on the about page (news, posts, selected projects, ...)
+
+.post article h2.section-title {
+  clear: both;
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--global-divider-color);
+}
+
+// ELLIS wordmark: one colour per letter, sampled from the official logo
+
+a.ellis-wordmark {
+  span:nth-child(1) { color: #e07358; }
+  span:nth-child(2) { color: #1db954; }
+  span:nth-child(3) { color: #46c7c0; }
+  span:nth-child(4) { color: #e78d45; }
+  span:nth-child(5) { color: #649ce7; }
+
+  &:hover span {
+    color: var(--global-theme-color);
+  }
+}
+
+// In-text citations (Author, year) that jump to an anchored reference and flash it
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; // keep the target clear of the fixed navbar
+}
+
+a.cite {
+  color: var(--global-theme-color);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+ul.references {
+  list-style: none;
+  padding-left: 0;
+
+  li {
+    padding: 0.35rem 0.5rem 0.35rem 2rem;
+    margin: 0 0 0.15rem -0.5rem;
+    text-indent: -1.5rem; // hanging indent
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+
+    &:target {
+      animation: ref-highlight 3s ease-out;
+    }
+  }
+}
+
+@keyframes ref-highlight {
+  0%,
+  40% {
+    background-color: color-mix(in srgb, var(--global-theme-color) 22%, transparent);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+// Project brand lockup (theme-aware, replaces the header image on branded project pages)
+
+.project-brand {
+  margin: 0.5rem auto 2.5rem;
+  max-width: 360px;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
 }

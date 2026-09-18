@@ -1,7 +1,8 @@
 <!-- Display selected projects -->
 {% assign projects = site.projects | where: "selected", "true" %}
-{% assign sorted_projects = projects | sort: "importance" %}
+{% assign sorted_projects = projects | sort: "date" | reverse %}
 <!-- Generate cards for each project -->
+<div class="projects">
 {% if page.horizontal %}
 <div class="container">
   <div class="row row-cols-1 row-cols-md-1">
@@ -17,3 +18,4 @@
   {% endfor %}
 </div>
 {% endif %}
+</div>

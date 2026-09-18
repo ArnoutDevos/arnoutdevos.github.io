@@ -1,12 +1,13 @@
 ---
 layout: page
 title: ETH AI Center Academic Talk Series
-description:
 img: assets/img/aicats_banner.jpg
 importance: 1
-description: AICATS is a talk series I led to foster meaningful connections and knowledge exchange between ETH AI Center's 100+ Faculty, 10+ Postdoctoral Fellows, 50+ Doctoral Fellows, and wider academic community.
+date: 2024-12-10 # most recent edition/activity, used for ordering
+description: Talk series I co-led to connect ETH AI Center's 100+ faculty, 60+ fellows, and wider academic community.
 category: [research, events]
-selected: true
+hide_header_img: true # image is already shown in the body
+selected: false
 chart:
   echarts: true
 ---
@@ -17,7 +18,7 @@ chart:
     </div>
 </div>
 
-At ETH AI Center, I led the development of AI Center Academic Talk Series (AICATS)! 😺 This series is designed to foster meaningful connections and knowledge exchange between ETH AI Center's 100+ Faculty, 10+ Postdoctoral Fellows, 50+ Doctoral Fellows, 1000+ Associated Researchers, and the larger interdisciplinary AI research community. Held usually on academic semester Tuesdays, the talks offer a unique opportunity to share ongoing research, spark collaborations, and engage with peers over a networking lunch.
+At ETH AI Center, I co-led the development of AI Center Academic Talk Series (AICATS)! 😺 This series is designed to foster meaningful connections and knowledge exchange between ETH AI Center's 100+ Faculty, 10+ Postdoctoral Fellows, 50+ Doctoral Fellows, 1000+ Associated Researchers, and the larger interdisciplinary AI research community. Held usually on academic semester Tuesdays, the talks offer a unique opportunity to share ongoing research, spark collaborations, and engage with peers over a networking lunch.
 
 📍 Be there or be square
 The core objective of this talk series is to stimulate in-person interaction in the ETH AI Center academic community, with a short talk format. So, there is usually no streaming or recording. Be there or be square! And, free pizza! 🍕

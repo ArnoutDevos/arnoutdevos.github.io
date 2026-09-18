@@ -14,6 +14,13 @@ layout: default
     <p class="post-description">{{ page.description }}</p>
   </header>
 
+  {% if page.collection == 'projects' and page.img and page.hide_header_img != true %}
+    <!-- same image as the project card, so the visual cue carries over -->
+    <div class="project-header-img">
+      {% include figure.liquid loading="eager" path=page.img class="img-fluid rounded" alt=page.title %}
+    </div>
+  {% endif %}
+
   <article>
     {{ content }}
   </article>

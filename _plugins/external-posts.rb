@@ -1,6 +1,7 @@
 require 'feedjira'
 require 'httparty'
 require 'jekyll'
+require 'json'
 require 'nokogiri'
 require 'time'
 
@@ -32,10 +33,17 @@ module ExternalPosts
     def process_entries(site, src, entries)
       entries.each do |e|
         puts "...fetching #{e.url}"
+        summary = e.summary.to_s.strip
+        # feeds like Medium's carry no summary: derive one from the first paragraph of text
+        if summary.empty? && e.content
+          text = Nokogiri::HTML(e.content).css('p').map { |n| n.text.strip }.reject(&:empty?).first.to_s
+          text = text[0, 280].sub(/\s+\S*\z/, '') + '…' if text.length > 280
+          summary = text
+        end
         create_document(site, src['name'], e.url, {
           title: e.title,
           content: e.content,
-          summary: e.summary,
+          summary: summary,
           published: e.published
         })
       end
@@ -69,7 +77,14 @@ module ExternalPosts
       src['posts'].each do |post|
         puts "...fetching #{post['url']}"
         content = fetch_content_from_url(post['url'])
-        content[:published] = parse_published_date(post['published_date'])
+        # per-post overrides from _config.yml take precedence over scraped values
+        content[:title] = post['title'] if post['title']
+        content[:summary] = post['description'] if post['description']
+        if post['published_date']
+          content[:published] = parse_published_date(post['published_date'])
+        elsif content[:published].nil?
+          raise "No published_date given for #{post['url']} and none could be scraped"
+        end
         create_document(site, src['name'], post['url'], content)
       end
     end
@@ -86,18 +101,41 @@ module ExternalPosts
     end
 
     def fetch_content_from_url(url)
-      html = HTTParty.get(url).body
-      parsed_html = Nokogiri::HTML(html)
+      response = HTTParty.get(url, headers: { 'User-Agent' => 'Mozilla/5.0' })
+      unless response.code == 200
+        puts "...warning: #{url} returned HTTP #{response.code}, relying on _config.yml overrides"
+        return { title: '', content: '', summary: '', published: nil }
+      end
+      parsed_html = Nokogiri::HTML(response.body)
 
-      title = parsed_html.at('head title')&.text.strip || ''
+      title = parsed_html.at('head title')&.text&.strip || ''
       description = parsed_html.at('head meta[name="description"]')&.attr('content') || ''
       body_content = parsed_html.at('body')&.inner_html || ''
+      published = nil
+
+      # Prefer schema.org JSON-LD when present (LinkedIn, most news sites):
+      # its headline/articleBody are cleaner than <title>/<meta description>.
+      parsed_html.css('script[type="application/ld+json"]').each do |script|
+        data = JSON.parse(script.text) rescue next
+        data = data.find { |d| d.is_a?(Hash) && d['articleBody'] } if data.is_a?(Array)
+        next unless data.is_a?(Hash) && (data['articleBody'] || data['headline'])
+        body = data['articleBody'].to_s.strip
+        title = data['headline'].to_s.strip if data['headline'] && !data['headline'].to_s.strip.empty?
+        # social posts have no separate summary: use the first paragraph, capped
+        unless body.empty?
+          description = body.split(/\n+/).first.to_s
+          description = description[0, 280].sub(/\s+\S*\z/, '') + '…' if description.length > 280
+        end
+        body_content = body.gsub("\n", '<br>') unless body.empty?
+        published = (Time.parse(data['datePublished']).utc rescue nil) if data['datePublished']
+        break
+      end
 
       {
         title: title,
         content: body_content,
-        summary: description
-        # Note: The published date is now added in the fetch_from_urls method.
+        summary: description,
+        published: published
       }
     end
 

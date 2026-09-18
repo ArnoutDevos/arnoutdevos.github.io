@@ -1,11 +1,13 @@
 ---
 layout: page
-title: Sciencepreneurship Summer School
-description: An intensive week-long program that brings together entrepreneurial graduate students, experienced sciencepreneurs, and ecosystem players. I co-founded and led the organization of the first edition, which has now grown into the bigger Sciencepreneurship Community.
+title: Sciencepreneurship Summer School 2023
+description: Week-long program for entrepreneurial graduate students, experienced sciencepreneurs, and ecosystem players. I co-founded and co-led the first edition, which grew into the Sciencepreneurship Community.
 img: assets/img/3S_community_dozentenfoyer.jpg
 importance: 3
+date: 2023-04-24 # most recent edition/activity, used for ordering
 category: [innovation, events]
-selected: true
+hide_header_img: true # image is already shown in the body
+selected: false
 ---
 
 <style type="text/css">

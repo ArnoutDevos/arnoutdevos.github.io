@@ -1,9 +1,10 @@
 ---
 layout: page
 title: AFC Student Startup Forum 2017
-description: An overview on the results of organizing the Student Startup Forum 2017
+description: Results of organizing the Student Startup Forum 2017.
 img: assets/img/afc_student_startup_forum_2017.jpeg
 importance: 3
+date: 2017-11-01 # most recent edition/activity, used for ordering
 category: [innovation, events]
 ---
 

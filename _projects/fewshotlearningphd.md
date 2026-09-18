@@ -1,11 +1,12 @@
 ---
 layout: page
 title: Few-shot Learning for ML Adaptation
-description: My PhD thesis is about investigating and developing few-shot learning solutions for more effective and more efficient machine learning model adaptation.
+description: My PhD thesis on few-shot learning for more effective and efficient adaptation of machine learning models.
 img: assets/img/EPFL_TH9878.pdf.jpg
 importance: 2
+date: 2024-06-01 # most recent edition/activity, used for ordering
 category: [research]
-selected: true
+selected: false
 ---
 
 Machine learning (ML) enables artificial intelligent (AI) agents to learn autonomously from data obtained from their environment to perform tasks. Modern ML systems have proven to be extremely effective, reaching or even exceeding human intelligence.

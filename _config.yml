@@ -63,7 +63,7 @@ max_width: 800px
 # -----------------------------------------------------------------------------
 # Display links to the page with a preview object on social media.
 # see https://schema.org/docs/faq.html for more information
-serve_og_meta: false # Include Open Graph meta tags in the HTML head
+serve_og_meta: true # Include Open Graph meta tags in the HTML head
 serve_schema_org: false # Include Schema.org in the HTML head
 og_image: # The site-wide (default for all links) Open Graph preview image
 
@@ -133,6 +133,16 @@ external_sources:
         published_date: 2021-06-10
       - url: https://actu.epfl.ch/news/machine-learning-skills-in-demand/
         published_date: 2019-06-14
+  # Auto-imports every post from the ETH AI Club Medium account (Cloudflare blocks
+  # scraping the article pages, but the RSS feed is open).
+  - name: ethaiclub.medium.com
+    rss_url: https://medium.com/feed/@ethaiclub
+  # LinkedIn posts have no real title (the <title> tag is just hashtags), so set one here.
+  # published_date and description are scraped from the post's JSON-LD if omitted.
+  - name: linkedin.com
+    posts:
+      - url: https://www.linkedin.com/feed/update/urn:li:activity:7056221519621828608/
+        title: Delivering the first ETH-EPFL Sciencepreneurship Summer School
 
 
 # -----------------------------------------------------------------------------
@@ -148,6 +158,7 @@ newsletter:
 # Collections
 # -----------------------------------------------------------------------------
 
+future: true # project pages carry a `date` used only for ordering; some are upcoming
 collections:
   news:
     defaults:

@@ -22,10 +22,9 @@ layout: default
         {% if page.profile.image %}
           {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
           {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
+            {% assign profile_image_class = 'img-fluid rounded-circle' %}
           {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1
-      rounded' %}
+            {% assign profile_image_class = 'img-fluid rounded' %}
           {% endif %}
           {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
       30vw, 95vw"{% endcapture %}
@@ -47,16 +46,28 @@ layout: default
           <div class="contact-note">{{ site.contact_note }}</div>
         </div>
       {% endif %}
+
+      <!-- Affiliations -->
+      {% if page.affiliations %}
+        <div class="affiliations">
+          {% for aff in page.affiliations %}
+            <a href="{{ aff.url }}" title="{{ aff.name }}" target="_blank" rel="noopener">
+              <img src="{{ aff.logo_light | relative_url }}" class="only-light" alt="{{ aff.name }}">
+              <img src="{{ aff.logo_dark | relative_url }}" class="only-dark" alt="{{ aff.name }}">
+            </a>
+          {% endfor %}
+        </div>
+      {% endif %}
       </div>
     {% endif %}
 
-    <div class="col-md-8 p-0 clearfix col-xl" style="text-align: justify;">{{ content }}</div>
+    <div class="col-md p-0 clearfix" style="text-align: justify;">{{ content }}</div>
     </div>
     </div>
 
     <!-- News -->
     {% if page.news and site.announcements.enabled %}
-      <h2>
+      <h2 class="section-title">
         <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
       </h2>
       {% include news.liquid limit=true %}
@@ -64,7 +75,7 @@ layout: default
 
     <!-- Latest posts -->
     {% if site.latest_posts.enabled %}
-      <h2>
+      <h2 class="section-title">
         <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
       </h2>
       {% include latest_posts.liquid %}
@@ -72,7 +83,7 @@ layout: default
 
     <!-- Selected papers -->
     {% if page.selected_papers %}
-      <h2>
+      <h2 class="section-title">
         <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
       </h2>
       {% include selected_papers.liquid %}
@@ -80,7 +91,7 @@ layout: default
 
     <!-- Selected projects -->
     {% if page.selected_projects %}
-      <h2>
+      <h2 class="section-title">
         <a href="{{ '/projects/' | relative_url }}" style="color: inherit">Selected Projects</a>
       </h2>
       {% include selected_projects.liquid %}
