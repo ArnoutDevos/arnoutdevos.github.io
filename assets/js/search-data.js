@@ -25,7 +25,7 @@ ninja.data = [{
           },
         },{id: "nav-talks",
           title: "talks",
-          description: "Overview of the invited talks, lectures, panels, and juries I did or will do.",
+          description: "Overview of the invited talks, guest lectures, panels, and juries I did or will do.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/talks/";
@@ -41,7 +41,7 @@ ninja.data = [{
       
         title: 'ETH AI Club — ETH Zurich students &amp; staff association on AI. <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
       
-      description: "by Thomas Bollenbach, Alessio Rimoldi, Sven Jonscher, Arnout Devos",
+      description: "ETH AI Club is the students &amp; staff association on Artificial Intelligence (AI) at ETH Zurich (Swiss Federal Institute of Technology Zurich). The association was formally founded in March 2026 &amp; aims to turn its members into responsible AI pioneers by studying, building, and…",
       section: "Posts",
       handler: () => {
         
@@ -171,13 +171,6 @@ ninja.data = [{
           section: "Projects",handler: () => {
               window.location.href = "/projects/aiscientist/";
             },},{
-        id: 'social-github',
-        title: 'GitHub',
-        section: 'Socials',
-        handler: () => {
-          window.open("https://github.com/ArnoutDevos", "_blank");
-        },
-      },{
         id: 'social-linkedin',
         title: 'LinkedIn',
         section: 'Socials',
@@ -197,6 +190,13 @@ ninja.data = [{
         section: 'Socials',
         handler: () => {
           window.open("https://twitter.com/ArnoutDevos", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/ArnoutDevos", "_blank");
         },
       },{
       id: 'light-theme',
