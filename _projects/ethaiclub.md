@@ -17,6 +17,6 @@ selected: true
 
 **Traction.** Within six months of founding: 250+ registered members, from students to administrative staff to professors. Our first ETH AI Club Demo Night (May 2026) and the Anthropic–ETH AI Sprint (June 2026) brought together 60 members and 10 projects — 5 from students and 5 from staff, including 2 professors. 40 members received over CHF 10,000 in Claude API credits and licenses through the Club to accelerate their AI journey.
 
-**Backers.** [AVETH](https://www.aveth.ethz.ch/), the association of ETH Zurich's scientific staff, and the [ETH AI Center](https://ai.ethz.ch) supported the Club from day one.
+**Backers.** [AVETH](https://ethz.ch/students/en/campus/scientific-staff-association.html), the association of ETH Zurich's scientific staff, and the [ETH AI Center](https://ai.ethz.ch) supported the Club from day one.
 
 Read the full story on Medium: [ETH AI Club — ETH Zurich students & staff association on AI](https://ethaiclub.medium.com/eth-ai-club-eth-zurich-students-staff-association-on-ai-24c17a262ec4).
