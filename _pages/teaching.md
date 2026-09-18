@@ -35,7 +35,7 @@ This project-based course teaches participants how to deal with data science and
 <div class="course-logos"><img src="/assets/img/ethz-logo-black.png" class="only-light" alt="ETH Zurich"><img src="/assets/img/ethz-logo-white.png" class="only-dark" alt="ETH Zurich"></div>
 </div>
 <div class="course-body" markdown="1">
-I helped initiate this hands-on course on large-scale AI, led by Imanol Schlag, focusing on the engineering principles and practices required to develop and optimize large-scale AI systems. It provides unique hands-on experience on the (Spring 2025) world's most powerful public AI supercomputer (Alps).
+I co-founded this hands-on course on large-scale AI with Imanol Schlag, focusing on the engineering principles and practices required to develop and optimize large-scale AI systems. It provides unique hands-on experience on the (Spring 2025) world's most powerful public AI supercomputer (Alps).
 </div>
 <div class="course-footer">
 <p class="course-semesters">Fall 2026, Spring 2026, Fall 2025, Spring 2025</p>
