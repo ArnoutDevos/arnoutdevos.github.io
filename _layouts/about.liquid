@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<div class="post">
+<div class="post about-page">
   <header class="post-header">
     <h1 class="post-title">
       {% if site.title == 'blank' %}
@@ -26,8 +26,9 @@ layout: default
           {% else %}
             {% assign profile_image_class = 'img-fluid rounded' %}
           {% endif %}
-          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
-      30vw, 95vw"{% endcapture %}
+          {% comment %} Over-report the slot width so browsers pick the 800/1400px variants
+          (the 480px one looks soft on Retina screens for a portrait). {% endcomment %}
+          {% capture sizes %}(min-width: 576px) 520px, 95vw{% endcapture %}
           {%
             include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
             cache_bust=true

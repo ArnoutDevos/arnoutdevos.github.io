@@ -34,17 +34,26 @@ module ExternalPosts
       entries.each do |e|
         puts "...fetching #{e.url}"
         summary = e.summary.to_s.strip
-        # feeds like Medium's carry no summary: derive one from the first paragraph of text
-        if summary.empty? && e.content
-          text = Nokogiri::HTML(e.content).css('p').map { |n| n.text.strip }.reject(&:empty?).first.to_s
-          text = text[0, 280].sub(/\s+\S*\z/, '') + '…' if text.length > 280
-          summary = text
+        thumbnail = nil
+        if e.content
+          html = Nokogiri::HTML(e.content)
+          # feeds like Medium's carry no summary: derive one from the first paragraph of text
+          if summary.empty?
+            # skip bylines/captions: take the first paragraph of real length
+            paras = html.css('p').map { |n| n.text.strip }.reject(&:empty?)
+            text = (paras.find { |t| t.length >= 80 && !t.start_with?('by ') } || paras.first).to_s
+            text = text[0, 280].sub(/\s+\S*\z/, '') + '…' if text.length > 280
+            summary = text
+          end
+          # first image in the post doubles as its thumbnail on the blog index
+          thumbnail = html.at('img')&.attr('src')
         end
         create_document(site, src['name'], e.url, {
           title: e.title,
           content: e.content,
           summary: summary,
-          published: e.published
+          published: e.published,
+          thumbnail: thumbnail
         })
       end
     end
@@ -69,6 +78,7 @@ module ExternalPosts
       doc.data['feed_content'] = content[:content]
       doc.data['description'] = content[:summary]
       doc.data['date'] = content[:published]
+      doc.data['thumbnail'] = content[:thumbnail] if content[:thumbnail]
       doc.data['redirect'] = url
       site.collections['posts'].docs << doc
     end
@@ -80,6 +90,7 @@ module ExternalPosts
         # per-post overrides from _config.yml take precedence over scraped values
         content[:title] = post['title'] if post['title']
         content[:summary] = post['description'] if post['description']
+        content[:thumbnail] = post['thumbnail'] if post['thumbnail']
         if post['published_date']
           content[:published] = parse_published_date(post['published_date'])
         elsif content[:published].nil?
@@ -104,7 +115,7 @@ module ExternalPosts
       response = HTTParty.get(url, headers: { 'User-Agent' => 'Mozilla/5.0' })
       unless response.code == 200
         puts "...warning: #{url} returned HTTP #{response.code}, relying on _config.yml overrides"
-        return { title: '', content: '', summary: '', published: nil }
+        return { title: '', content: '', summary: '', published: nil, thumbnail: nil }
       end
       parsed_html = Nokogiri::HTML(response.body)
 
@@ -112,6 +123,8 @@ module ExternalPosts
       description = parsed_html.at('head meta[name="description"]')&.attr('content') || ''
       body_content = parsed_html.at('body')&.inner_html || ''
       published = nil
+      # social preview image, if the page declares one
+      thumbnail = parsed_html.at('meta[property="og:image"]')&.attr('content')
 
       # Prefer schema.org JSON-LD when present (LinkedIn, most news sites):
       # its headline/articleBody are cleaner than <title>/<meta description>.
@@ -135,7 +148,8 @@ module ExternalPosts
         title: title,
         content: body_content,
         summary: description,
-        published: published
+        published: published,
+        thumbnail: thumbnail
       }
     end
 

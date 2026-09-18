@@ -1,0 +1,61 @@
+# Talks, lectures, panels, and juries — newest first. Rendered by _pages/talks.md.
+# type: talk | guest lecture | webinar | jury | defense
+- date: 2025-05-10
+  type: talk
+  title: "Vibe Coding: from idea to product in minutes"
+  venue: Effective Altruism Switzerland Community Weekend
+  venue_url: https://www.effectivealtruism.ch/
+- date: 2025-03-18
+  type: webinar
+  title: AI in Perioperative Care
+  url: https://academy.esaic.org/esaic/2025/webinars-2025/4151040/faculty.presenters.ai.in.perioperative.care.html
+  venue: ESAIC Academy
+- date: 2024-06-14
+  type: defense
+  title: Few-shot Machine Learning for Efficient and Effective Model Adaptation
+  venue: EPFL PhD defense
+- date: 2024-02-07
+  type: talk
+  title: Sciencepreneurship Summer School 2023 & outlook
+  venue: ELIAS-ELISE Flagship Workshop (ELLIS)
+  venue_url: https://ellis.eu/events/joint-elise-elias-flagship-workshop
+- date: 2023-10-11
+  type: talk
+  title: Few-shot Machine Learning for Efficient and Effective Model Adaptation
+  venue: University of Tübingen ML Excellence Cluster
+  venue_url: https://uni-tuebingen.de/en/research/core-research/cluster-of-excellence-machine-learning/home/
+- date: 2023-10-05
+  type: talk
+  title: Few-shot Machine Learning for Efficient and Effective Model Adaptation
+  venue: EPFL MLO
+  venue_url: https://www.epfl.ch/labs/mlo/
+- date: 2023-03-29
+  type: guest lecture
+  title: Basics of an Investment Memorandum
+  venue: EPFL CDM ENVS
+  venue_url: https://edu.epfl.ch/studyplan/en/master/management-technology-and-entrepreneurship/coursebook/entrepreneurship-new-venture-strategy-MGT-413
+- date: 2022-12-04
+  type: jury
+  title: LauzHack finals jury
+  venue: LauzHack 2022
+  venue_url: https://lauzhack-2022.devpost.com/
+- date: 2020-12-11
+  type: talk
+  title: Model-Agnostic Learning to Meta-Learn
+  venue: Pre-Registration Workshop (NeurIPS 2020)
+  venue_url: https://preregister.science/neurips2020.html
+- date: 2020-07-18
+  type: talk
+  title: Self-Supervised Prototypical Transfer Learning for Few-Shot Classification
+  venue: AutoML Workshop (ICML 2020)
+  venue_url: https://sites.google.com/view/automl2020/accepted-papers_1
+- date: 2020-07-18
+  type: talk
+  title: Regression Networks for Meta-Learning Few-Shot Classification
+  venue: AutoML Workshop (ICML 2020)
+  venue_url: https://sites.google.com/view/automl2020/accepted-papers_1
+- date: 2019-08-22
+  type: talk
+  title: Regression Networks for Meta-Learning Few-Shot Classification
+  venue: EPFL LTS5
+  venue_url: https://www.epfl.ch/labs/lts5/

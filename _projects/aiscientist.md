@@ -38,6 +38,14 @@ The ingredients exist, including capable foundation models, agentic scaffolding,
 - **Error elimination → verify.** Whatever is verifiable will likely be automated — reinforcement learning from verifiable rewards already drives reasoning ability (<a href="#ref-deepseek2025" class="cite">DeepSeek-AI, 2025</a>) — so the leverage is in automating verification rather than doing it by hand, including executable tests, reproductions, held-out evaluation, and reward models learned from several kinds of feedback at once (<a href="#ref-baur2026" class="cite">Baur et al., 2026</a>). As in Co-Scientist, most compute should go to checking, not generating. And a verifier must measure what we actually want: solved problems are a proxy for understanding, and optimizing the proxy alone loses the goal (<a href="#ref-tao2026" class="cite">Tao, 2026</a>).
 - **New problem → the scientist stays in the loop.** A cycle ends with a sharper question, not a finished answer. Domain experts decide which questions matter; the system runs the cycle at a scale and speed no single lab can.
 
+## Where this comes from
+
+Each step of the loop has been done by hand before, including in our own earlier work:
+
+- **Pre-registration.** Committing the hypothesis and experimental plan *before* seeing results, and having them reviewed on that basis (<a href="#ref-devos2021" class="cite">Devos &amp; Dandi, 2021</a>), is the tentative-theory step made explicit. An AI Scientist should be held to the same standard: a plan that can be inspected before it runs.
+- **Reproducibility.** Independently re-implementing and re-running a published method (<a href="#ref-devos2019" class="cite">Devos et al., 2019</a>) is error elimination by hand; in that case it led the original authors to update their paper and release code. It is exactly the check we now want to automate.
+- **Deployment across disciplines.** In ETH's [Data Science Lab](/teaching/), student teams take on machine-learning problems "in the wild", posed by domain experts in academia, industry, and startups across fields. That is the grounding an AI Scientist needs: real problems, real data, and someone who can judge the answer.
+
 ## Design choices
 
 - **Large-scale.** Research is an iterative, embarrassingly parallel search over hypotheses and experiments, so the system is designed to run and judge thousands of them concurrently — on CSCS's Alps supercomputer, with the distributed training and inference skills taught in ETH's [Large-Scale AI Engineering](/projects/largescaleaiengineering/) course.
@@ -62,6 +70,8 @@ Get in touch.
   <li id="ref-balunovic2025">Balunović, M., Dekoninck, J., Petrov, I., Jovanović, N., &amp; Vechev, M. (2025). MathArena: Evaluating LLMs on Uncontaminated Math Competitions. <a href="https://arxiv.org/abs/2505.23281">arXiv:2505.23281</a></li>
   <li id="ref-baur2026">Baur, R., Metz, Y., Gkoulta, M., El-Assady, M., Ramponi, G., &amp; Kleine Buening, T. (2026). MAVRL: Learning Reward Functions from Multiple Feedback Types with Amortized Variational Inference. <em>ICML</em>. <a href="https://arxiv.org/abs/2602.15206">arXiv:2602.15206</a></li>
   <li id="ref-deepseek2025">DeepSeek-AI (2025). DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning. <a href="https://arxiv.org/abs/2501.12948">arXiv:2501.12948</a></li>
+  <li id="ref-devos2019">Devos, A., Chatel, S., &amp; Grossglauser, M. (2019). [Re] Meta-learning with differentiable closed-form solvers. <em>ReScience C</em> / ICLR 2019 Reproducibility Challenge. <a href="https://rescience.github.io/bibliography/Devos_2019.html">rescience.github.io</a> · <a href="https://github.com/ArnoutDevos/r2d2">code</a></li>
+  <li id="ref-devos2021">Devos, A., &amp; Dandi, Y. (2021). Model-Agnostic Learning to Meta-Learn. <em>Proceedings of the NeurIPS 2020 Workshop on Pre-registration in Machine Learning</em>, PMLR 148. <a href="https://proceedings.mlr.press/v148/devos21a.html">proceedings.mlr.press</a></li>
   <li id="ref-gottweis2026">Gottweis, J., Weng, W.-H., Daryin, A., et al. (2026). Accelerating scientific discovery with Co-Scientist. <em>Nature</em>. <a href="https://doi.org/10.1038/s41586-026-10644-y">doi:10.1038/s41586-026-10644-y</a> · <a href="https://deepmind.google/blog/co-scientist-a-multi-agent-ai-partner-to-accelerate-research/">blog post</a></li>
   <li id="ref-karpathy2026">Karpathy, A. (2026). autoresearch: AI agents running research on single-GPU nanochat training automatically. <a href="https://github.com/karpathy/autoresearch">GitHub</a></li>
   <li id="ref-lee2026">Lee, Y., Nair, R., Zhang, Q., Lee, K., Khattab, O., &amp; Finn, C. (2026). Meta-Harness: End-to-End Optimization of Model Harnesses. <a href="https://arxiv.org/abs/2603.28052">arXiv:2603.28052</a></li>

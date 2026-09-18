@@ -4,6 +4,7 @@ title: EPFL guest lecture&#58; Investment Memo
 date: 2023-03-29 18:00:00
 description: Invited guest lecture at EPFL on how VCs evaluate startups & build investment memos that they base their decisions on.
 categories: education innovation
+thumbnail: assets/img/EPFL_guest_lecture_memo_arnout.jpeg
 tags: education innovation
 ---
 

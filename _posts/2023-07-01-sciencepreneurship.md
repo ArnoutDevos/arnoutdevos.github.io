@@ -3,6 +3,7 @@ layout: post
 title:  ETH-EPFL Sciencepreneurship Summer School 2023
 date: 2023-07-01 21:01:00
 description: thoughts on co-founding the first ETH-EPFL Sciencepreneurship Summer School
+thumbnail: assets/img/3S_community_dozentenfoyer.jpg
 tags: educate innovate
 categories: sample-posts
 ---
