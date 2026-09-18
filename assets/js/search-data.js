@@ -147,7 +147,7 @@ ninja.data = [{
               window.location.href = "/projects/aicats/";
             },},{id: "projects-large-scale-ai-engineering",
           title: 'Large-Scale AI Engineering',
-          description: "Hands-on ETH Zurich course led by Imanol Schlag, which I helped initiate and co-lecture. Students train and optimize large models on 32 GH200 GPUs each on CSCS&#39;s Alps supercomputer.",
+          description: "Hands-on ETH Zurich course I co-founded with Imanol Schlag in Spring 2025. Students train and optimize large models on 32 GH200 GPUs each on CSCS&#39;s Alps supercomputer.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/largescaleaiengineering/";
             },},{id: "projects-science-for-ai-workshop-ais25",
