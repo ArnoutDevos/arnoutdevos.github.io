@@ -1558,8 +1558,9 @@ ninja-keys::part(ninja-input-wrapper) {
     width: auto;
   }
 
-  // the AI Center mark is squarer than the ETH wordmark, so give it ~3x the height
-  img[alt="ETH AI Center"] {
+  // squarer marks (ETH AI Center) get ~3x the height of the wordmarks.
+  // A class, not an attribute selector: PurgeCSS strips [alt="..."] rules on deploy.
+  img.logo-tall {
     height: 3.6rem;
   }
 }

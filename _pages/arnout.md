@@ -22,6 +22,7 @@ affiliations: # logos shown below the social icons
     url: https://ai.ethz.ch
     logo_light: assets/img/eth-ai-center-logo-black.svg
     logo_dark: assets/img/eth-ai-center-logo-white.png
+    logo_class: logo-tall # squarer mark, rendered taller than the wordmarks
   - name: ETH Zurich
     url: https://ethz.ch/en.html
     logo_light: assets/img/ethz-logo-black.png

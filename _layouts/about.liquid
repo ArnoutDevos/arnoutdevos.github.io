@@ -53,8 +53,8 @@ layout: default
         <div class="affiliations">
           {% for aff in page.affiliations %}
             <a href="{{ aff.url }}" title="{{ aff.name }}" target="_blank" rel="noopener">
-              <img src="{{ aff.logo_light | relative_url }}" class="only-light" alt="{{ aff.name }}">
-              <img src="{{ aff.logo_dark | relative_url }}" class="only-dark" alt="{{ aff.name }}">
+              <img src="{{ aff.logo_light | relative_url }}" class="only-light {{ aff.logo_class }}" alt="{{ aff.name }}">
+              <img src="{{ aff.logo_dark | relative_url }}" class="only-dark {{ aff.logo_class }}" alt="{{ aff.name }}">
             </a>
           {% endfor %}
         </div>
